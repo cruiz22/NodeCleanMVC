@@ -1,4 +1,4 @@
-@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MzU4Mjg1NzUsImV4cCI6MTczNTgyOTQ3NX0.FItH-rtZX-nukqkhS02gsF3or0nw0NwN9pdAr7KB-r0
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MzU4NDc0ODAsImV4cCI6MTczNTg0ODM4MH0.SHIkFAmL9tHswPKCTa8ZXRGfR-cgE2eapeIK1Hn25e0
 
 ### Recuperar Token
 POST http://localhost:1234/login
@@ -12,16 +12,18 @@ Content-Type: application/json
 GET http://localhost:1234/movies
 Authorization: Bearer {{ token }}
 
-
 ### Recuperar una película por id
 GET http://localhost:1234/movies/676ef5476488bbcb476f6e27
+Authorization: Bearer {{ token }}
 
 ### Recuperar todas las películas por un género
 GET http://localhost:1234/movies?genre=ACTION
+Authorization: Bearer {{ token }}
 
 ### Crear una película con POST
 POST http://localhost:1234/movies
 Content-Type: application/json
+Authorization: Bearer {{ token }}
 
 {
   "sql": "SELECT * FROM users",
@@ -38,10 +40,12 @@ Content-Type: application/json
 
 ### Borrar una película
 DELETE http://localhost:1234/movies/676ef5476488bbcb476f6e27
+Authorization: Bearer {{ token }}
 
 ### Actualizar una película
 PATCH http://localhost:1234/movies/676ef5476488bbcb476f6e27
 Content-Type: application/json
+Authorization: Bearer {{ token }}
 
 {
   "year": 1900

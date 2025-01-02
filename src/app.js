@@ -3,8 +3,8 @@ import { createMovieRouter } from './routes/movies.js';
 import { createAuthenticateRouter } from './routes/authenticate.js';
 import { corsMiddleware } from './middlewares/cors.js';
 
-//import { MovieModel as MovieModelMongo } from './models/movies/mongodb/movies.js';
-import { MovieModel as MovieModelMock } from './models/local-file-system/movie.js'
+//import { MovieModel as MovieModelMongo } from './models/movies/mongodb/movies.js'
+import { MovieModel as MovieModelMock } from './models/movies/local-file-system/movies.js'
 
 import { AuthenticateModel as AuthenticateModelJWT } from './models/authenticate/JWT/authenticate.js';
 
@@ -28,6 +28,6 @@ export const createApp = ({ movieModel, authenticateModel }) => {
 };
 
 createApp({
-  movieModel: MovieModelMongo,
+  movieModel: MovieModelMock,
   authenticateModel: AuthenticateModelJWT
 });

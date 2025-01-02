@@ -2,7 +2,7 @@ import { randomUUID } from 'node:crypto';
 import { readJSON } from '../../../utils/utils.js';
 import IMovieModel from '../../interfaces/IMovies.js';
 
-const movies = readJSON('./../movies.json');
+const movies = readJSON('../../mocks/movies.json')
 
 export class MovieModel extends IMovieModel {
   static async getAll({ genre }) {
