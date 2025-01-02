@@ -3,15 +3,14 @@ import { createMovieRouter } from './routes/movies.js';
 import { createAuthenticateRouter } from './routes/authenticate.js';
 import { corsMiddleware } from './middlewares/cors.js';
 
-import { MovieModel as MovieModelMongo } from './models/movies/mongodb/movies.js';
-//import { MovieModel as MovieModelMock } from './models/local-file-system/movie.js'
+//import { MovieModel as MovieModelMongo } from './models/movies/mongodb/movies.js';
+import { MovieModel as MovieModelMock } from './models/local-file-system/movie.js'
 
 import { AuthenticateModel as AuthenticateModelJWT } from './models/authenticate/JWT/authenticate.js';
 
 import dotenv from 'dotenv';
 dotenv.config();
 
-// después
 export const createApp = ({ movieModel, authenticateModel }) => {
   const app = express();
   app.use(json());

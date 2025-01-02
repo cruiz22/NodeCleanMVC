@@ -22,7 +22,6 @@ export class MovieController {
     const result = validateMovie(req.body);
 
     if (!result.success) {
-      // 422 Unprocessable Entity
       return res.status(400).json({ error: JSON.parse(result.error.message) });
     }
 
