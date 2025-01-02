@@ -1,0 +1,48 @@
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MzU4Mjg1NzUsImV4cCI6MTczNTgyOTQ3NX0.FItH-rtZX-nukqkhS02gsF3or0nw0NwN9pdAr7KB-r0
+
+### Recuperar Token
+POST http://localhost:1234/login
+Content-Type: application/json
+
+{
+  "username": "user123"
+}
+
+### Recuperar todas las películas
+GET http://localhost:1234/movies
+Authorization: Bearer {{ token }}
+
+
+### Recuperar una película por id
+GET http://localhost:1234/movies/676ef5476488bbcb476f6e27
+
+### Recuperar todas las películas por un género
+GET http://localhost:1234/movies?genre=ACTION
+
+### Crear una película con POST
+POST http://localhost:1234/movies
+Content-Type: application/json
+
+{
+  "sql": "SELECT * FROM users",
+  "title": "The Godfather",
+  "year": 1975,
+  "director": "Francis Ford Coppola",
+  "duration": 175,
+  "poster": "https://img.fruugo.com/product/4/49/14441494_max.jpg",
+  "genre": [
+    "Crime",
+    "Drama"
+  ]
+}
+
+### Borrar una película
+DELETE http://localhost:1234/movies/676ef5476488bbcb476f6e27
+
+### Actualizar una película
+PATCH http://localhost:1234/movies/676ef5476488bbcb476f6e27
+Content-Type: application/json
+
+{
+  "year": 1900
+}
